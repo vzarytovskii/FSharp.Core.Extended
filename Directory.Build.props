@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <PackageId>FSharp.Core.Faster</PackageId>
+    <Version>1.0.0-pre</Version>
+    <Authors>Vlad Zarytovskii</Authors>
+    <Company></Company>
+    <PackageReadmeFile>./README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+ <PropertyGroup>
+    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)artifacts/obj</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(MSBuildThisFileDirectory)artifacts/bin</BaseOutputPath>
+ </PropertyGroup>
+
+</Project>

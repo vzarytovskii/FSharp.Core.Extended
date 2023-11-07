@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+        <PackageVersion Include="FSharp.Core" Version="8.0.100-beta.23327.15" />
+        <PackageVersion Include="BenchmarkDotNet" Version="0.13.10" />
+  </ItemGroup>
+</Project>
