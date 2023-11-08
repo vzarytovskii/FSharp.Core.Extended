@@ -24,8 +24,8 @@ module Array =
 
         if array.Length = 1 then
             array[0]
-
         else
+            // These already vectorized
             Enumerable.Max array
 
     [<CompiledName("Min")>]
@@ -37,6 +37,6 @@ module Array =
 
         if array.Length = 1 then
             array[0]
-
         else
+            // These already vectorized
             Enumerable.Min array
