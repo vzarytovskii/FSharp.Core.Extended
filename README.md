@@ -1,7 +1,43 @@
 # What
 
-This library is a drop-in replacement for the `FSharp.Core` with functions, which are generally faster than built-in ones, but may be backwards-incompatible at runtime.
+> [!WARNING]  
+> This library is very much work in progress, expect minor issues.
 
+This library tries to be a drop-in replacement for the `FSharp.Core` with functions, which are generally faster than built-in ones, but may be backwards-incompatible at runtime/compile-time.
+
+## Examples of current (and future planned) backwards-incompatibilities:
+- Some collections functions (`min`, `max`, `sum`, etc) can handle things like `NaN` differently than `FSharp.Core`.
+- All `try*` functions return `ValueOption<'T>`.
+- `Option<'T>` is aliasing `ValueOption<'T>`, all `Option` module functions shadowing the ones from `FSharp.Core`, several helper functions/methods provided to convert back and from the `FSharp.Core.Option<'T>`.
+- `...`
+
+## Hot to use:
+This library being a `drop-in` replacement doesn't mean that just referencing its NuGet package is enough. Shadowing is achieved by opening this library's namespace (works on any granularity), for example:
+
+```fsharp
+open FSharp.Core.Faster
+```
+
+will shadow every module and type defined in this library (e.g. `Option` type, `Option` module, `Array` module, `List` module, etc)
+
+
+```fsharp
+open FSharp.Core.Faster.Collections
+```
+
+will shadow every module and type defined for collections
+
+
+```fsharp
+open FSharp.Core.Faster.Collections.Array
+```
+
+will shadow every type and module defined for arrays
+
+
+And so on.
+
+<details>
 ## Latest [benchmarks](tests/benchmarks) from my Macbook Pro M2:
 ```
 
@@ -76,3 +112,4 @@ Jit=RyuJit  Concurrent=True  Server=True
 | ArrayMinBenchmark&lt;Double&gt; | &#39;Array.min - FSharp.Core.Faster&#39; | 1000000   |  1,980,354.2 ns |   5,570.30 ns |   5,210.46 ns |                    - |                - |        - |          - |       35 B |
 | ArrayMinBenchmark&lt;Double&gt; | &#39;Array.min - FSharp.Core&#39;        | 2000000   | 66,489,180.2 ns | 118,303.97 ns | 110,661.61 ns |                    - |                - | 750.0000 |          - | 96000044 B |
 | ArrayMinBenchmark&lt;Double&gt; | &#39;Array.min - FSharp.Core.Faster&#39; | 2000000   |  4,029,762.6 ns |  12,493.23 ns |  11,686.17 ns |                    - |                - |        - |          - |       38 B |
+</details>
