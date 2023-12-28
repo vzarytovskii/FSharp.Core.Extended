@@ -13,7 +13,7 @@ type ArrayMax<'T when 'T : comparison>() =
 
     [<Benchmark(Description="Array.max - FSharp.Core.Faster")>]
     member inline this.MaxFaster() =
-        FSharp.Core.Faster.Collections.Array.Array.max this.Array
+        FSharp.Core.Faster.Collections.Array.max this.Array
 
     [<Benchmark(Description="Array.max - FSharp.Core")>]
     member inline this.MaxDefault() =

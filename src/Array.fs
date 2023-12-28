@@ -1,4 +1,4 @@
-namespace FSharp.Core.Faster.Collections.Array
+namespace FSharp.Core.Faster.Collections
 
 #nowarn "1204" // Compiler-only usage warnings
 #nowarn "3391" // op_Implicit conversions warning

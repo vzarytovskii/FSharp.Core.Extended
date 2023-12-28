@@ -10,7 +10,7 @@ module Sum =
     testList "Array.Sum" [
       testPropertyWithConfig config "FSharp.Core, System.Linq.Enumerable and FSharp.Core.Faster produce the same results" <| fun (xs: int[]) ->
             let sumDefault = Microsoft.FSharp.Collections.Array.sum xs
-            let sumFaster = FSharp.Core.Faster.Collections.Array.Array.sum xs
+            let sumFaster = FSharp.Core.Faster.Collections.Array.sum xs
             let sumLinq = Enumerable.Sum xs
             sumDefault = sumFaster && sumFaster = sumLinq
       ]

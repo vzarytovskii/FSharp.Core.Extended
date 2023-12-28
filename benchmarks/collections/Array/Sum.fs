@@ -13,7 +13,7 @@ type ArraySum<'T when 'T : comparison and 'T: (static member (+) : 'T * 'T -> 'T
     inherit ArrayBenchmarkBase<'T>()
     [<Benchmark(Description="Array.sum - FSharp.Core.Faster")>]
     member inline this.SumFaster() =
-        FSharp.Core.Faster.Collections.Array.Array.sum this.Array
+        FSharp.Core.Faster.Collections.Array.sum this.Array
         ()
 
     [<Benchmark(Description="Array.sum - FSharp.Core")>]

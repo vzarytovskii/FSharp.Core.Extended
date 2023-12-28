@@ -12,7 +12,7 @@ type ArrayMin<'T when 'T : comparison>() =
 
     [<Benchmark(Description="Array.min - FSharp.Core.Faster")>]
     member inline this.MinFaster() =
-        FSharp.Core.Faster.Collections.Array.Array.min this.Array
+        FSharp.Core.Faster.Collections.Array.min this.Array
 
     [<Benchmark(Description="Array.min - FSharp.Core")>]
     member inline this.MinDefault() =
