@@ -48,7 +48,7 @@ module Array =
     let inline sum (array: 'T[]) : 'T =
         checkNonNull "array" array
         if array.Length = 0 then
-            array[0]
+            Unchecked.defaultof<_>
         elif array.Length = 1 then
             array[0]
         else

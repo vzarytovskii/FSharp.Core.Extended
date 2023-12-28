@@ -25,12 +25,12 @@ module Min =
         let min = FSharp.Core.Faster.Collections.Array.Array.min xs
         Expect.equal min -3 $"Expected min to be -3 (but was {min})"
 
-      testCase "When NaN is first element, min returns it" <| fun _ ->
+      testCase "Min returns NaN when it is the first element" <| fun _ ->
         let xs = [| nan; 1.0; 2.0 |]
         let min = FSharp.Core.Faster.Collections.Array.Array.min xs
         Expect.isTrue (Double.IsNaN min) $"Expected min to be NaN (but was {min})"
 
-      testCase "When NaN is not first element, min returns it" <| fun _ ->
+      testCase "Min returns NaN when it is NOT the first element" <| fun _ ->
         let xs = [| 1.0; nan; 2.0 |]
         let min = FSharp.Core.Faster.Collections.Array.Array.min xs
         Expect.isTrue (Double.IsNaN min) $"Expected min to be NaN (but was {min})"
