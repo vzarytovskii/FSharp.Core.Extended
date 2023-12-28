@@ -2,11 +2,10 @@ namespace FSharp.Core.Faster.Tests.Collections.Array
 
 module Min =
   open Expecto
-  open FsCheck
   open System
   open System.Linq
+  open FSharp.Core.Faster.Tests
 
-  let config: FsCheckConfig = { FsCheckConfig.defaultConfig with maxTest = 100_000 }
   [<Tests>]
   let tests =
     testList "Array.Min" [
@@ -35,7 +34,7 @@ module Min =
         let min = FSharp.Core.Faster.Collections.Array.min xs
         Expect.isTrue (Double.IsNaN min) $"Expected min to be NaN (but was {min})"
 
-      testPropertyWithConfig config "FSharp.Core, Enumerable.Min and FSharp.Core.Faster Array.Min produce the same results" <| fun (xs: int[]) ->
+      testPropertyWithConfig Common.config "FSharp.Core, Enumerable.Min and FSharp.Core.Faster Array.Min produce the same results" <| fun (xs: int[]) ->
           // Empty array handling is one of the differences between those 3
           // Different exceptions are thrown
           if xs.Length = 0 then
