@@ -2,8 +2,18 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
-  <ItemGroup>
-        <PackageVersion Include="FSharp.Core" Version="8.0.100-beta.23327.15" />
-        <PackageVersion Include="BenchmarkDotNet" Version="0.13.10" />
+  <ItemGroup> <!-- Main dependencies -->
+    <PackageVersion Include="FSharp.Core" Version="8.0.100" />
+  </ItemGroup>
+  <ItemGroup> <!-- Testing and benchmarks dependencies -->
+    <PackageVersion Include="Hopac" Version="0.5.1" />
+    <PackageVersion Include="Logary.Adapters.Facade" Version="5.0.1" />
+    <PackageVersion Include="FsCheck" Version="2.16.6" />
+    <PackageVersion Include="Expecto" Version="10.1.0" />
+    <PackageVersion Include="Expecto.FsCheck" Version="10.1.0" />
+    <PackageVersion Include="Expecto.VisualStudio.TestAdapter " Version="10.0.2" />
+    <PackageVersion Include="YoloDev.Expecto.TestSdk" Version="0.14.3" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0-preview-23577-04" />
+    <PackageVersion Include="BenchmarkDotNet" Version="0.13.11" />
   </ItemGroup>
 </Project>

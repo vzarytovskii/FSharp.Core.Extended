@@ -5,6 +5,7 @@
     <Authors>Vlad Zarytovskii</Authors>
     <Company></Company>
     <PackageReadmeFile>./README.md</PackageReadmeFile>
+    <RootNamespace>FSharp.Core.Faster</RootNamespace>
   </PropertyGroup>
 
  <PropertyGroup>

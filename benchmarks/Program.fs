@@ -35,6 +35,11 @@ type Program() =
                         SummaryOrderPolicy.Declared,
                         MethodOrderPolicy.Declared)
                 )
+                .AddLogicalGroupRules(
+                    BenchmarkLogicalGroupRule.ByParams,
+                    BenchmarkLogicalGroupRule.ByCategory,
+                    BenchmarkLogicalGroupRule.ByMethod
+                )
                 .AddAnalyser(
                     EnvironmentAnalyser.Default,
                     MinIterationTimeAnalyser.Default,
