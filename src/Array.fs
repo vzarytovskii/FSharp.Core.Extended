@@ -2,6 +2,7 @@ namespace FSharp.Core.Faster.Collections
 
 #nowarn "1204" // Compiler-only usage warnings
 #nowarn "3391" // op_Implicit conversions warning
+#nowarn "9"
 
 [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
 [<RequireQualifiedAccess>]
@@ -10,6 +11,14 @@ module Array =
     open System
     open System.Numerics
     open System.Runtime.InteropServices
+
+    let inline invalidArgFmt (arg:string) (format:string) paramArray =
+        let msg = String.Format (format, paramArray)
+        raise (new ArgumentException (msg, arg))
+
+    let inline invalidArgInputMustBeNonNegative (arg:string) (count:int) =
+        invalidArgFmt arg "{0}\n{1} = {2}" [| LanguagePrimitives.ErrorStrings.InputMustBeNonNegativeString ; arg; count |]
+
     let inline checkNonNull argName arg =
         if isNull arg then
             nullArg argName
@@ -67,3 +76,37 @@ module Array =
                 sum <- sum + span[i]
 
             sum
+
+    [<CompiledName("Create")>]
+    let inline create (count: int) (value: 'T) =
+        // This implementation is the fastest by far when we operate on < 1M elements.
+        // Benchmarked: InitBlock, Normal Fill, custom Vector-based fill.
+        if count < 0 then
+            invalidArgInputMustBeNonNegative "count" count
+
+        let array: 'T[] = Array.zeroCreate count
+
+        // TODO: Shall this be somehow more flexible?
+        if count < 1_000_000 then
+            array.AsSpan().Fill(value)
+        else
+            if Vector.IsHardwareAccelerated then
+                let vector = Vector<'T>(value);
+                let mutable idx = 0
+                let c = Vector<'T>.Count
+
+                while idx <= array.Length - c do
+                    vector.CopyTo(array, idx)
+                    idx <- idx + c
+
+                idx <- array.Length - array.Length % c
+
+                while idx < array.Length && idx >= 0 do
+                    array[idx] <- value
+                    idx <- idx + 1
+            else
+                //  Fallback to simple loop
+                for i in 0 .. array.Length - 1 do
+                    array.[i] <- value
+
+        array

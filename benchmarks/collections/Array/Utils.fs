@@ -2,7 +2,6 @@ namespace FSharp.Faster.Benchmarks.Collections.Array.Utils
 
 open BenchmarkDotNet.Attributes
 
-
 [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
 [<RequireQualifiedAccess>]
 module ArrayBenchmark =
