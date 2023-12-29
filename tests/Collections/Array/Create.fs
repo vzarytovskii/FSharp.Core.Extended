@@ -2,8 +2,6 @@ namespace FSharp.Core.Faster.Tests.Collections.Array
 
 module Create =
   open Expecto
-  open System
-  open System.Linq
   open FSharp.Core.Faster.Tests
 
   [<Tests>]
