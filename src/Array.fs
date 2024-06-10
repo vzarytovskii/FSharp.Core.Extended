@@ -14,11 +14,11 @@ module Array =
 
     open FSharp.Core.Extended
 
-    let inline invalidArgFmt (arg:string) (format:string) paramArray =
+    let inline invalidArgFmt (arg: string) (format: string) (paramArray: obj array) =
         let msg = String.Format (format, paramArray)
         raise (new ArgumentException (msg, arg))
 
-    let inline invalidArgInputMustBeNonNegative (arg:string) (count:int) =
+    let inline invalidArgInputMustBeNonNegative (arg: string) (count: int) =
         invalidArgFmt arg "{0}\n{1} = {2}" [| LanguagePrimitives.ErrorStrings.InputMustBeNonNegativeString ; arg; count |]
 
     let inline checkNonNull argName arg =
