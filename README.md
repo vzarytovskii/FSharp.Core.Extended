@@ -1,7 +1,7 @@
 # What
 
 > [!WARNING]
-> This library is very much work in progress, expect minor issues.
+> This library is very much work in progress, expect issues.
 
 This library tries to be a drop-in replacement for the `FSharp.Core` with functions, which are generally faster and more flexible than built-in ones, but may be backwards-incompatible at runtime/compile-time.
 
