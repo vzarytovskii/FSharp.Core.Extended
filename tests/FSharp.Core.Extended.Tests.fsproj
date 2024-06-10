@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="Common.fs" />
     <Compile Include="Core/Option.fs" />
+    <Compile Include="Core/Lock.fs" />
     <Compile Include="Collections/Array/Create.fs" />
     <Compile Include="Collections/Array/Min.fs" />
     <Compile Include="Collections/Array/Sum.fs" />

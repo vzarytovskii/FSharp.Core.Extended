@@ -8,16 +8,27 @@ namespace FSharp.Core.Extended
 module Locks =
     [<AbstractClass; Sealed; NoComparison; NoEquality>]
     type Lock =
-#if NET9_OR_HIGHER
-        static member inline Lock(lockObject: System.Threading.Lock, [<InlineIfLambda>] action: unit -> 'a, _: Lock) =
-            use _ = lockObject.EnterLockScope()
-            action ()
-#endif
-        static member inline Lock(lockObject: _, [<InlineIfLambda>] action: unit -> 'a, _: Lock) =
+
+        static member inline Lock((lockObject: obj, _: Lock), action: unit -> 'a) =
+            assert (lockObject.GetType() <> typeof<System.Threading.Lock>)
+
             let mutable lockTaken = false
             try
-                System.Threading.Monitor.Enter(lockObject, &lockTaken);
-                action()
+                System.Threading.Monitor.Enter(lockObject, &lockTaken)
+                action ()
             finally
                 if lockTaken then
                     System.Threading.Monitor.Exit(lockObject)
+
+        static member inline Lock((lockObject: System.Threading.Lock, _: Lock), action: unit -> 'a) =
+            let scope = lockObject.EnterScope()
+            try
+                action ()
+            finally
+                scope.Dispose()
+
+        static member inline Invoke ([<InlineIfLambda>] action: unit -> 'U) (lockObject: 'T) : 'U =
+            let inline call (mthd: ^M, lockObject: ^I, _output: ^R) = ((^M or ^I or ^R) : (static member Lock : (_ * _) * _ -> _) (lockObject, mthd), action)
+            call (Unchecked.defaultof<Lock>, lockObject, Unchecked.defaultof<'U>)
+
+    let inline lock (lockObject: _) ([<InlineIfLambda>] action: unit -> 'a) = Lock.Invoke action lockObject

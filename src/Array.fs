@@ -107,7 +107,7 @@ module Array =
                     array[idx] <- value
                     idx <- idx + 1
             else
-                //  Fallback to simple loop
+                // Fallback to simple loop
                 for i in 0 .. array.Length - 1 do
                     array.[i] <- value
 

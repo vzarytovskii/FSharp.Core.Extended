@@ -13,7 +13,7 @@
     <BaseOutputPath>$(MSBuildThisFileDirectory)artifacts/bin</BaseOutputPath>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DefaultTargetFrameworks>net8.0;net9.0</DefaultTargetFrameworks>
+    <DefaultTargetFrameworks>net9.0</DefaultTargetFrameworks>
     <LangVersion>preview</LangVersion>
     <Deterministic>True</Deterministic>
  </PropertyGroup>
