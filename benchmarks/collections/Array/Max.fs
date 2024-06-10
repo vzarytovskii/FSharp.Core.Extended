@@ -1,7 +1,7 @@
-namespace FSharp.Faster.Benchmarks.Collections.Array.Max
+namespace FSharp.Extended.Benchmarks.Collections.Array.Max
 
 open BenchmarkDotNet.Attributes
-open FSharp.Faster.Benchmarks.Collections.Array.Utils
+open FSharp.Extended.Benchmarks.Collections.Array.Utils
 
 
 [<GenericTypeArguments(typeof<int>)>]
@@ -11,9 +11,9 @@ open FSharp.Faster.Benchmarks.Collections.Array.Utils
 type ArrayMax<'T when 'T : comparison>() =
     inherit ArrayBenchmarkBase<'T>()
 
-    [<Benchmark(Description="Array.max - FSharp.Core.Faster")>]
+    [<Benchmark(Description="Array.max - FSharp.Core.Extended")>]
     member inline this.MaxFaster() =
-        FSharp.Core.Faster.Collections.Array.max this.Array
+        FSharp.Core.Extended.Collections.Array.max this.Array
 
     [<Benchmark(Description="Array.max - FSharp.Core")>]
     member inline this.MaxDefault() =

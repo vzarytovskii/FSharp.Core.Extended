@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Include="Common.fs" />
+    <Compile Include="Core/Option.fs" />
     <Compile Include="Collections/Array/Create.fs" />
     <Compile Include="Collections/Array/Min.fs" />
     <Compile Include="Collections/Array/Sum.fs" />
@@ -15,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../src/FSharp.Core.Faster.fsproj" />
+    <ProjectReference Include="../src/FSharp.Core.Extended.fsproj" />
   </ItemGroup>
 
   <ItemGroup>

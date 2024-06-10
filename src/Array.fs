@@ -1,4 +1,4 @@
-namespace FSharp.Core.Faster.Collections
+namespace FSharp.Core.Extended.Collections
 
 #nowarn "1204" // Compiler-only usage warnings
 #nowarn "3391" // op_Implicit conversions warning
@@ -11,6 +11,8 @@ module Array =
     open System
     open System.Numerics
     open System.Runtime.InteropServices
+
+    open FSharp.Core.Extended
 
     let inline invalidArgFmt (arg:string) (format:string) paramArray =
         let msg = String.Format (format, paramArray)
@@ -110,3 +112,20 @@ module Array =
                     array.[i] <- value
 
         array
+
+    [<CompiledName("TryHead")>]
+    let inline tryHead (array: 'T[]) =
+        checkNonNull "array" array
+
+        if array.Length = 0 then
+            None
+        else
+            Some array.[0]
+
+    [<CompiledName("Choose")>]
+    let inline choose (chooser: 'T -> Option<'U>) (array: 'T[]) : Option<'U>[] =
+        checkNonNull "array" array
+        [| for x in array do
+            match chooser x with
+            | Some y -> yield y
+            | None -> () |]

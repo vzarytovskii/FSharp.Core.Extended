@@ -1,7 +1,7 @@
-namespace FSharp.Faster.Benchmarks.Collections.Array.Min
+namespace FSharp.Extended.Benchmarks.Collections.Array.Min
 
 open BenchmarkDotNet.Attributes
-open FSharp.Faster.Benchmarks.Collections.Array.Utils
+open FSharp.Extended.Benchmarks.Collections.Array.Utils
 
 [<GenericTypeArguments(typeof<int>)>]
 [<GenericTypeArguments(typeof<int64>)>]
@@ -10,9 +10,9 @@ open FSharp.Faster.Benchmarks.Collections.Array.Utils
 type ArrayMin<'T when 'T : comparison>() =
     inherit ArrayBenchmarkBase<'T>()
 
-    [<Benchmark(Description="Array.min - FSharp.Core.Faster")>]
+    [<Benchmark(Description="Array.min - FSharp.Core.Extended")>]
     member inline this.MinFaster() =
-        FSharp.Core.Faster.Collections.Array.min this.Array
+        FSharp.Core.Extended.Collections.Array.min this.Array
 
     [<Benchmark(Description="Array.min - FSharp.Core")>]
     member inline this.MinDefault() =

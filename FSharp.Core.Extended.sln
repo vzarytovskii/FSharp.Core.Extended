@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Core.Faster", "src\FSharp.Core.Faster.fsproj", "{A0E2DB54-64DD-415F-91A9-ECBEC6F9A721}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Core.Extended", "src\FSharp.Core.Extended.fsproj", "{A0E2DB54-64DD-415F-91A9-ECBEC6F9A721}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Core.Faster.Tests", "tests\FSharp.Core.Faster.Tests.fsproj", "{3DC961B7-D4E4-41E7-95BD-8EBB358F4C77}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Core.Extended.Tests", "tests\FSharp.Core.Extended.Tests.fsproj", "{3DC961B7-D4E4-41E7-95BD-8EBB358F4C77}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Core.Faster.Benchmarks", "benchmarks\FSharp.Core.Faster.Benchmarks.fsproj", "{CDC9D23E-FC28-470F-9236-8785137B0B31}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Core.Extended.Benchmarks", "benchmarks\FSharp.Core.Extended.Benchmarks.fsproj", "{CDC9D23E-FC28-470F-9236-8785137B0B31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-﻿namespace FSharp.Core.Faster.Tests
+﻿namespace FSharp.Core.Extended.Tests
 
 module Program =
     [<EntryPoint>]

@@ -1,4 +1,4 @@
-namespace FSharp.Core.Faster.Benchmarks
+namespace FSharp.Core.Extended.Benchmarks
 
 open System
 open BenchmarkDotNet.Running

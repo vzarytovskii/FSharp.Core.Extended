@@ -1,4 +1,4 @@
-namespace FSharp.Core.Faster.Tests
+namespace FSharp.Core.Extended.Tests
 
 module Common =
     open Logary.Configuration
@@ -9,7 +9,7 @@ module Common =
     let init () =
         Expecto.Expect.defaultDiffPrinter <- Expecto.Diff.colourisedDiff
         let logary =
-            Config.create "FSharp.Core.Faster.Tests" "localhost"
+            Config.create "FSharp.Core.Extended.Tests" "localhost"
             |> Config.targets [ LiterateConsole.create LiterateConsole.empty "console" ]
             |> Config.processing (Events.events |> Events.sink ["console";])
             |> Config.build

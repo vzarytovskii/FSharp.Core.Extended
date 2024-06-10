@@ -3,7 +3,7 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup> <!-- Main dependencies -->
-    <PackageVersion Include="FSharp.Core" Version="8.0.100" />
+    <PackageVersion Include="FSharp.Core" Version="8.0.101" />
   </ItemGroup>
   <ItemGroup> <!-- Testing and benchmarks dependencies -->
     <PackageVersion Include="Hopac" Version="0.5.1" />

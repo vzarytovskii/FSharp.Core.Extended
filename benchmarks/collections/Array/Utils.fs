@@ -1,11 +1,11 @@
-namespace FSharp.Faster.Benchmarks.Collections.Array.Utils
+namespace FSharp.Extended.Benchmarks.Collections.Array.Utils
 
 open BenchmarkDotNet.Attributes
 
 [<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
 [<RequireQualifiedAccess>]
 module ArrayBenchmark =
-    open FSharp.Core.Faster.Benchmarks.Utils
+    open FSharp.Core.Extended.Benchmarks.Utils
     let random = System.Random ()
     // This is a huge footgun, might be wise to use fscheck or something.
     let inline generateArray<'T> (size: int) :'T array =

@@ -1,11 +1,11 @@
 <Project>
   <PropertyGroup>
-    <PackageId>FSharp.Core.Faster</PackageId>
+    <PackageId>FSharp.Core.Extended</PackageId>
     <Version>1.0.0-pre</Version>
     <Authors>Vlad Zarytovskii</Authors>
     <Company></Company>
     <PackageReadmeFile>./README.md</PackageReadmeFile>
-    <RootNamespace>FSharp.Core.Faster</RootNamespace>
+    <RootNamespace>FSharp.Core.Extended</RootNamespace>
   </PropertyGroup>
 
  <PropertyGroup>

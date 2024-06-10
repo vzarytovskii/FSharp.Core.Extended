@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="../README.md" Pack="true" PackagePath="\"/>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
+    <Compile Include="Option.fs" />
     <Compile Include="Array.fs" />
   </ItemGroup>
 
