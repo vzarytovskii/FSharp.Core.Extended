@@ -8,8 +8,14 @@ namespace FSharp.Core.Extended
 module Locks =
     [<AbstractClass; Sealed; NoComparison; NoEquality>]
     type Lock =
+        static member inline Lock ((lockObject: System.Threading.Lock, action: unit -> 'a), _: Lock) : 'a =
+            let scope = lockObject.EnterScope()
+            try
+                action ()
+            finally
+                scope.Dispose()
 
-        static member inline Lock((lockObject: obj, _: Lock), action: unit -> 'a) =
+        static member inline Lock ((lockObject: obj, action: unit -> 'a), _: Lock) : 'a =
             assert (lockObject.GetType() <> typeof<System.Threading.Lock>)
 
             let mutable lockTaken = false
@@ -20,15 +26,8 @@ module Locks =
                 if lockTaken then
                     System.Threading.Monitor.Exit(lockObject)
 
-        static member inline Lock((lockObject: System.Threading.Lock, _: Lock), action: unit -> 'a) =
-            let scope = lockObject.EnterScope()
-            try
-                action ()
-            finally
-                scope.Dispose()
+        static member inline Invoke (action: unit -> 'U) (lockObject: 'L) : 'U =
+                let inline call (mthd: ^M, lockObject: ^O, _output: ^R) = ((^M or ^O or ^R) : (static member Lock : (_ * _) * _ -> _) (lockObject, action), mthd)
+                call (Unchecked.defaultof<Lock>, lockObject, Unchecked.defaultof<'U>)
 
-        static member inline Invoke ([<InlineIfLambda>] action: unit -> 'U) (lockObject: 'T) : 'U =
-            let inline call (mthd: ^M, lockObject: ^I, _output: ^R) = ((^M or ^I or ^R) : (static member Lock : (_ * _) * _ -> _) (lockObject, mthd), action)
-            call (Unchecked.defaultof<Lock>, lockObject, Unchecked.defaultof<'U>)
-
-    let inline lock (lockObject: _) ([<InlineIfLambda>] action: unit -> 'a) = Lock.Invoke action lockObject
+    let inline lock (lockObject: 'T when 'T : not struct) (action: unit -> 'a) : 'a = Lock.Invoke action lockObject
