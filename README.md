@@ -3,7 +3,7 @@
 > [!WARNING]
 > This library is very much work in progress, expect minor issues.
 
-This library tries to be a drop-in replacement for the `FSharp.Core` with functions, which are generally faster than built-in ones, but may be backwards-incompatible at runtime/compile-time.
+This library tries to be a drop-in replacement for the `FSharp.Core` with functions, which are generally faster and more flexible than built-in ones, but may be backwards-incompatible at runtime/compile-time.
 
 ## Examples of current (and future planned) backwards-incompatibilities:
 - Some collections functions (`min`, `max`, `sum`, etc) can handle things like `NaN` differently than `FSharp.Core`.
