@@ -37,10 +37,9 @@ will shadow every type and module defined for arrays
 
 And so on.
 
-<details>
 ## Latest [benchmarks](tests/benchmarks) from my Macbook Pro M2:
+  
 ```
-
 BenchmarkDotNet v0.13.10, macOS Sonoma 14.2 (23C5030f) [Darwin 23.2.0]
 Apple M2 Max, 1 CPU, 12 logical and 12 physical cores
 .NET SDK 8.0.100-rc.2.23502.2
