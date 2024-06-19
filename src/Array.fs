@@ -12,8 +12,6 @@ module Array =
     open System.Numerics
     open System.Runtime.InteropServices
 
-    open FSharp.Core.Extended
-
     let inline invalidArgFmt (arg: string) (format: string) (paramArray: obj array) =
         let msg = String.Format (format, paramArray)
         raise (new ArgumentException (msg, arg))
@@ -127,5 +125,5 @@ module Array =
         checkNonNull "array" array
         [| for x in array do
             match chooser x with
-            | Some y -> yield y
+            | Some y -> yield Some y
             | None -> () |]
