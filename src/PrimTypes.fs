@@ -7,7 +7,10 @@ module Locks =
     type Lock() =
         static member inline lock (lockObject: System.Threading.Lock) =
             fun ([<InlineIfLambda>] action: unit -> 'R) ->
-                assert (lockObject.GetType() = typeof<System.Threading.Lock>)
+#if DEBUG
+                if (lockObject.GetType() <> typeof<System.Threading.Lock>) then
+                    raise (new System.ArgumentException("System.Threading.Lock should be passed to this function", nameof(lockObject)))
+#endif
                 let scope = lockObject.EnterScope()
                 try
                     action ()
@@ -16,7 +19,10 @@ module Locks =
 
         static member inline lock (lockObject: 'T when 'T : not struct) =
             fun ([<InlineIfLambda>] action: unit -> 'R) ->
-                assert (lockObject.GetType() <> typeof<System.Threading.Lock>)
+#if DEBUG
+                if (lockObject.GetType() = typeof<System.Threading.Lock>) then
+                    raise (new System.ArgumentException("System.Threading.Lock should not be passed to this function", nameof(lockObject)))
+#endif
                 System.Threading.Monitor.Enter(lockObject)
                 try
                     action ()

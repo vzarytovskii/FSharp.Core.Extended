@@ -3,17 +3,20 @@ namespace FSharp.Core.Extended.Tests.Core.Lock
 module Min =
     open Expecto
     open FSharp.Core.Extended.Locks
+    open System
 
 
     let private config =
         { Expecto.FsCheckConfig.defaultConfig with
-            maxTest = 100 }
+            maxTest = 200 }
 
 
     [<Tests>]
     let tests =
         testList "Lock" [
             // These two will throw in DEBUG if it goes to the wrong lock implementation (via assert)
+            testCase "System.Threading.Lock casted to System.Object passed to lock 'overload' which accepts System.Object causes an assert" <| fun () ->
+                Expect.throwsT<ArgumentException> (fun () -> lock (System.Threading.Lock() :> obj) (fun () -> ())) "System.Threading.Lock should not be passed to this function"
             testCase "System.Object is accepted in the lock function" <| fun () -> lock (obj()) (fun () -> ())
             testCase "System.Threading.Lock is accepted in the lock function" <| fun () -> lock (System.Threading.Lock()) (fun () -> ())
             testPropertyWithConfig config "System.Object lock works as expected" <| fun (maxvalue: int) ->
