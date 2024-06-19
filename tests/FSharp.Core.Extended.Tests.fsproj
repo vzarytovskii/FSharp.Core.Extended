@@ -6,6 +6,7 @@
     <GenerateProgramFile>false</GenerateProgramFile>
     <IsPackable>false</IsPackable>
     <PackageId>FSharp.Core.Extended.Tests</PackageId>
+    <VSTestUseMSBuildOutput>false</VSTestUseMSBuildOutput>
   </PropertyGroup>
 
   <ItemGroup>
