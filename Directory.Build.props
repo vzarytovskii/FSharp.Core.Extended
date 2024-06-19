@@ -1,13 +1,19 @@
 <Project>
   <PropertyGroup>
     <PackageId>FSharp.Core.Extended</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Vlad Zarytovskii</Authors>
     <Company></Company>
     <PackageReadmeFile>./README.md</PackageReadmeFile>
     <RootNamespace>FSharp.Core.Extended</RootNamespace>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>FSharp;FSharp.Core</PackageTags>
+    <Description>
+      This is an experimental drop-in replacement for FSharp.Core with additional functionality (oftentimes faster and mor optimized implementations).
+    </Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/vzarytovskii/FSharp.Core.Extended</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vzarytovskii/FSharp.Core.Extended</RepositoryUrl>
   </PropertyGroup>
 
  <PropertyGroup>
