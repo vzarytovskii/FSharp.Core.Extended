@@ -2,13 +2,17 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>$(DefaultTargetFrameworks)</TargetFrameworks>
     <GenerateProgramFile>false</GenerateProgramFile>
+    <IsPackable>false</IsPackable>
+    <PackageId>FSharp.Core.Extended.Tests</PackageId>
+    <VSTestUseMSBuildOutput>false</VSTestUseMSBuildOutput>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="Common.fs" />
     <Compile Include="Core/Option.fs" />
+    <Compile Include="Core/Lock.fs" />
     <Compile Include="Collections/Array/Create.fs" />
     <Compile Include="Collections/Array/Min.fs" />
     <Compile Include="Collections/Array/Sum.fs" />
