@@ -1,4 +1,4 @@
-[![NuGet version (FSharp.Core.Extended)](https://img.shields.io/nuget/v/FSharp.Core.Extended.svg?style=flat-square)](https://www.nuget.org/packages/SoftCircuits.Silk/)
+[![NuGet version (FSharp.Core.Extended)](https://img.shields.io/nuget/v/FSharp.Core.Extended.svg?style=flat-square)](https://www.nuget.org/packages/FSharp.Core.Extended/)
 
 # What
 
