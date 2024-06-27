@@ -1,0 +1,70 @@
+name: Nullness-related report
+description: File a bug report.
+title: "[Nullness]: "
+labels: ["bug", "Needs-Triage", "Area-Nullness"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please check at [Nullable Reference Types RFC](https://github.com/fsharp/fslang-design/blob/main/RFCs/FS-1060-nullable-reference-types.md) if this issue isn't a known limitation, such as missing flow-control analysis after branching constructs like `if` or `while`.
+  - type: input
+    id: description
+    attributes:
+      label: Description
+      description: Please provide a succinct description of the issue
+      placeholder: Description
+    validations:
+      required: true
+  - type: checkboxes
+    id: categories
+    attributes:
+      label: Choose one or more from the following categories of impact
+      options:
+        - label: Unexpected nullness warning (false positive in nullness checking, code uses --checknulls and langversion:preview).
+        - label: Missing nullness warning in a case which can produce nulls (false negative, code uses --checknulls and langversion:preview).
+        - label: Breaking change related to older `null` constructs in code not using the checknulls switch.
+        - label: Breaking change related to generic code and explicit type constraints (`null`, `not null`).
+        - label: Type inference issue (i.e. code worked without type annotations before, and applying the --checknulls enforces type annotatins).
+        - label: C#/F# interop issue related to nullness metadata.
+        - label: Other (none of the categories above apply).
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      description: What operating system are you running?
+      options:
+        - Windows (Default)
+        - Linux
+        - macOS
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: dotnet-kind
+    attributes:
+      label: What .NET runtime/SDK kind are you seeing the issue on
+      multiple: false
+      options:
+        - .NET SDK (.NET Core, .NET 5+)
+        - .NET Framework
+      default: 0
+      validations:
+        required: true
+  - type: input
+    id: dotnet-version
+    attributes:
+      label: .NET Runtime/SDK version
+      placeholder: e.g. .NET 9 or .NET SDK 9.0.100
+  - type: dropdown
+    id: .NET Runtime Kind
+    attributes:
+      label: What .NET runtime/SDK kind are you seeing the issue on
+      multiple: false
+      options:
+        - .NET Core
+        - .NET Framework
+      validations:
+        required: true
+    
