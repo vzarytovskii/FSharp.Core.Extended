@@ -50,21 +50,10 @@ body:
         - .NET SDK (.NET Core, .NET 5+)
         - .NET Framework
       default: 0
-      validations:
-        required: true
+    validations:
+      required: true
   - type: input
     id: dotnet-version
     attributes:
       label: .NET Runtime/SDK version
       placeholder: e.g. .NET 9 or .NET SDK 9.0.100
-  - type: dropdown
-    id: .NET Runtime Kind
-    attributes:
-      label: What .NET runtime/SDK kind are you seeing the issue on
-      multiple: false
-      options:
-        - .NET Core
-        - .NET Framework
-      validations:
-        required: true
-    
