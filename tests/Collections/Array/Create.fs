@@ -21,8 +21,8 @@ module Create =
             true
           else
             let createDefault = Microsoft.FSharp.Collections.Array.create count value
-            let createFaster = FSharp.Core.Extended.Collections.Array.create count value
-            createDefault = createFaster &&
-            Array.forall ((=) value) createFaster &&
+            let createExtended = FSharp.Core.Extended.Collections.Array.create count value
+            createDefault = createExtended &&
+            Array.forall ((=) value) createExtended &&
             Array.forall ((=) value) createDefault
       ]

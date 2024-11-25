@@ -24,7 +24,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="FSharp.Core" />
     <PackageReference Include="FsCheck" />
     <PackageReference Include="Expecto" />
     <PackageReference Include="Expecto.Diff" />
@@ -32,5 +31,7 @@
     <PackageReference Include="YoloDev.Expecto.TestSdk" />
     <PackageReference Include="Hopac" />
     <PackageReference Include="Logary.Adapters.Facade" />
+    <PackageReference Include="System.Net.Http" />
+    <PackageReference Include="System.Text.RegularExpressions" />
   </ItemGroup>
 </Project>

@@ -13,7 +13,6 @@
     <Compile Include="collections/Array/Max.fs" />
     <Compile Include="collections/Array/Min.fs" />
     <Compile Include="collections/Array/Sum.fs" />
-    <Compile Include="collections/Array/Choose.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
@@ -22,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="FSharp.Core" />
     <PackageReference Include="BenchmarkDotNet" />
   </ItemGroup>
 

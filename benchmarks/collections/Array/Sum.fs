@@ -12,7 +12,7 @@ open FSharp.Extended.Benchmarks.Collections.Array.Utils
 type ArraySum<'T when 'T : comparison and 'T: (static member (+) : 'T * 'T -> 'T) and 'T: (static member Zero: 'T) and 'T: (new: unit -> 'T) and 'T: struct and 'T :> System.ValueType>() =
     inherit ArrayBenchmarkBase<'T>()
     [<Benchmark(Description="Array.sum - FSharp.Core.Extended")>]
-    member inline this.SumFaster() =
+    member inline this.SumExtended() =
         FSharp.Core.Extended.Collections.Array.sum this.Array
         ()
 

@@ -84,32 +84,13 @@ module Array =
         if count < 0 then
             invalidArgInputMustBeNonNegative "count" count
 
-        let array: 'T[] = Array.zeroCreate count
+        if count = 1 then
+            [| value |]
 
-        // TODO: Shall this be somehow more flexible?
-        if count < 1_000_000 then
-            array.AsSpan().Fill(value)
         else
-            if Vector.IsHardwareAccelerated then
-                let vector = Vector<'T>(value);
-                let mutable idx = 0
-                let c = Vector<'T>.Count
-
-                while idx <= array.Length - c do
-                    vector.CopyTo(array, idx)
-                    idx <- idx + c
-
-                idx <- array.Length - array.Length % c
-
-                while idx < array.Length && idx >= 0 do
-                    array[idx] <- value
-                    idx <- idx + 1
-            else
-                // Fallback to simple loop
-                for i in 0 .. array.Length - 1 do
-                    array.[i] <- value
-
-        array
+            let array: 'T[] = Array.zeroCreate count
+            array.AsSpan().Fill(value)
+            array
 
     [<CompiledName("TryHead")>]
     let inline tryHead (array: 'T[]) =
@@ -119,11 +100,3 @@ module Array =
             None
         else
             Some array.[0]
-
-    [<CompiledName("Choose")>]
-    let inline choose (chooser: 'T -> Option<'U>) (array: 'T[]) : Option<'U>[] =
-        checkNonNull "array" array
-        [| for x in array do
-            match chooser x with
-            | Some y -> yield Some y
-            | None -> () |]

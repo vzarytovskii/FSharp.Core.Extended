@@ -12,7 +12,7 @@ type ArrayMax<'T when 'T : comparison>() =
     inherit ArrayBenchmarkBase<'T>()
 
     [<Benchmark(Description="Array.max - FSharp.Core.Extended")>]
-    member inline this.MaxFaster() =
+    member inline this.MaxExtended() =
         FSharp.Core.Extended.Collections.Array.max this.Array
 
     [<Benchmark(Description="Array.max - FSharp.Core")>]

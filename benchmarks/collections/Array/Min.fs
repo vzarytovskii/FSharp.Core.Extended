@@ -11,7 +11,7 @@ type ArrayMin<'T when 'T : comparison>() =
     inherit ArrayBenchmarkBase<'T>()
 
     [<Benchmark(Description="Array.min - FSharp.Core.Extended")>]
-    member inline this.MinFaster() =
+    member inline this.MinExtended() =
         FSharp.Core.Extended.Collections.Array.min this.Array
 
     [<Benchmark(Description="Array.min - FSharp.Core")>]

@@ -41,7 +41,7 @@ module Min =
             true
           else
             let minDefault = Microsoft.FSharp.Collections.Array.min xs
-            let minFaster = FSharp.Core.Extended.Collections.Array.min xs
+            let minExtended = FSharp.Core.Extended.Collections.Array.min xs
             let minLinq = Enumerable.Min xs
-            minDefault = minFaster && minFaster = minLinq
+            minDefault = minExtended && minExtended = minLinq
       ]
