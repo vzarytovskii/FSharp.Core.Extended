@@ -79,8 +79,6 @@ module Array =
 
     [<CompiledName("Create")>]
     let inline create (count: int) (value: 'T) =
-        // This implementation is the fastest by far when we operate on < 1M elements.
-        // Benchmarked: InitBlock, Normal Fill, custom Vector-based fill.
         if count < 0 then
             invalidArgInputMustBeNonNegative "count" count
 
