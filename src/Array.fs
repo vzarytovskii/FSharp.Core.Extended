@@ -40,6 +40,19 @@ module Array =
         else
             Enumerable.Max array
 
+    [<CompiledName("MaxBy")>]
+    let inline maxBy ([<InlineIfLambda>] projection: 'T -> 'U) (array: 'T array) : 'T =
+        checkNonNull "array" array
+
+        if array.Length = 0 then
+            invalidArg "array" LanguagePrimitives.ErrorStrings.InputArrayEmptyString
+
+
+        if array.Length = 1 then
+            array[0]
+        else
+            Enumerable.MaxBy(array, projection)
+
     [<CompiledName("Min")>]
     let inline min<'T> (array: 'T[]) =
         checkNonNull "array" array

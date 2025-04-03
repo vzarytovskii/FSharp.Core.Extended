@@ -13,6 +13,8 @@
     <Compile Include="Common.fs" />
     <Compile Include="Core/Lock.fs" />
     <Compile Include="Collections/Array/Create.fs" />
+    <Compile Include="Collections/Array/Max.fs" />
+    <Compile Include="Collections/Array/MaxBy.fs" />
     <Compile Include="Collections/Array/Min.fs" />
     <Compile Include="Collections/Array/Sum.fs" />
     <Compile Include="Program.fs" />

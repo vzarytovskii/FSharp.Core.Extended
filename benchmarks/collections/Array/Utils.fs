@@ -12,7 +12,7 @@ module ArrayBenchmark =
         Array.init size (fun _ -> retype (random.Next()))
 
 type ArrayBenchmarkBase<'T>() =
-    [<Params(1, 10, 100, 1_000, 10_000, 100_000, 1_000_000, 2_000_000)>]
+    [<Params(1, 10, 100, 1_000, 10_000)>]
     member val ArraySize = 0 with get, set
 
     member val Array : 'T array = Unchecked.defaultof<_> with get, set
