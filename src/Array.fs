@@ -65,6 +65,18 @@ module Array =
         else
             Enumerable.Min array
 
+    [<CompiledName("MinBy")>]
+    let inline minBy ([<InlineIfLambda>] projection: 'T -> 'U) (array: 'T array) : 'T =
+        checkNonNull "array" array
+
+        if array.Length = 0 then
+            invalidArg "array" LanguagePrimitives.ErrorStrings.InputArrayEmptyString
+
+        if array.Length = 1 then
+            array[0]
+        else
+            Enumerable.MinBy(array, projection)
+
     [<CompiledName("Sum")>]
     let inline sum (array: 'T[]) : 'T =
         checkNonNull "array" array

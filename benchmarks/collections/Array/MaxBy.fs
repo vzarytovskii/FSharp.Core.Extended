@@ -13,8 +13,8 @@ type ArrayMaxBy<'T when 'T : comparison>() =
 
     [<Benchmark(Description="Array.maxBy - FSharp.Core.Extended")>]
     member inline this.MaxExtended() =
-        FSharp.Core.Extended.Collections.Array.maxBy (fun x -> x) this.Array
+        FSharp.Core.Extended.Collections.Array.maxBy id this.Array
 
     [<Benchmark(Description="Array.maxBy - FSharp.Core")>]
     member inline this.MaxDefault() =
-        Microsoft.FSharp.Collections.Array.maxBy (fun x -> x) this.Array
+        Microsoft.FSharp.Collections.Array.maxBy id this.Array
