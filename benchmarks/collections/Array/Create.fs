@@ -19,6 +19,6 @@ type ArrayCreate<'T when 'T : comparison>() =
     member inline this.CreateExtended() =
         FSharp.Core.Extended.Collections.Array.create this.Count this.Value
 
-    [<Benchmark(Description="Array.create - FSharp.Core")>]
+    [<Benchmark(Description="Array.create - FSharp.Core", Baseline=true)>]
     member inline this.CreateDefault() =
         Microsoft.FSharp.Collections.Array.create this.Count this.Value

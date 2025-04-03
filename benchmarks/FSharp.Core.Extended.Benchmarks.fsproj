@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="Utils.fs" />
     <Compile Include="collections/Array/Utils.fs" />
+    <Compile Include="collections/Array/Average.fs" />
     <Compile Include="collections/Array/Create.fs" />
     <Compile Include="collections/Array/Max.fs" />
     <Compile Include="collections/Array/MaxBy.fs" />

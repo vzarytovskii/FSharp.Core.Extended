@@ -15,6 +15,6 @@ type ArrayMax<'T when 'T : comparison>() =
     member inline this.MaxExtended() =
         FSharp.Core.Extended.Collections.Array.max this.Array
 
-    [<Benchmark(Description="Array.max - FSharp.Core")>]
+    [<Benchmark(Description="Array.max - FSharp.Core", Baseline=true)>]
     member inline this.MaxDefault() =
         Microsoft.FSharp.Collections.Array.max this.Array

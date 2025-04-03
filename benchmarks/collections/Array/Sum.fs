@@ -16,7 +16,7 @@ type ArraySum<'T when 'T : comparison and 'T: (static member (+) : 'T * 'T -> 'T
         FSharp.Core.Extended.Collections.Array.sum this.Array
         ()
 
-    [<Benchmark(Description="Array.sum - FSharp.Core")>]
+    [<Benchmark(Description="Array.sum - FSharp.Core", Baseline=true)>]
     member inline this.SumDefault() =
         Microsoft.FSharp.Collections.Array.sum this.Array
         ()

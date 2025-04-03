@@ -14,6 +14,6 @@ type ArrayMinBy<'T when 'T : comparison>() =
     member inline this.MinExtended() =
         FSharp.Core.Extended.Collections.Array.minBy id this.Array
 
-    [<Benchmark(Description="Array.minBy - FSharp.Core")>]
+    [<Benchmark(Description="Array.minBy - FSharp.Core", Baseline=true)>]
     member inline this.MinDefault() =
             Microsoft.FSharp.Collections.Array.minBy id this.Array
