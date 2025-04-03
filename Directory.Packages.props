@@ -4,20 +4,23 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
     <DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference>
   </PropertyGroup>
+  <PropertyGroup>
+    <ExpectoPackagesVersion>11.0.0-alpha8</ExpectoPackagesVersion>
+  </PropertyGroup>
   <ItemGroup> <!-- Main dependencies -->
-    <PackageVersion Include="FSharp.Core" Version="9.0.100" />
+    <PackageVersion Include="FSharp.Core" Version="9.0.201" />
   </ItemGroup>
   <ItemGroup> <!-- Testing and benchmarks dependencies -->
     <PackageVersion Include="Hopac" Version="0.5.1" />
     <PackageVersion Include="Logary.Adapters.Facade" Version="5.0.1" />
     <PackageVersion Include="System.Net.Http" Version="4.3.4" />
     <PackageVersion Include="System.Text.RegularExpressions" Version="4.3.1" />
-    <PackageVersion Include="FsCheck" Version="2.16.6" />
-    <PackageVersion Include="Expecto" Version="10.2.1" />
-    <PackageVersion Include="Expecto.Diff" Version="10.2.1" />
-    <PackageVersion Include="Expecto.FsCheck" Version="10.2.1" />
-    <PackageVersion Include="YoloDev.Expecto.TestSdk" Version="0.14.3" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageVersion Include="FsCheck" Version="3.1.0" />
+    <PackageVersion Include="Expecto" Version="$(ExpectoPackagesVersion)" />
+    <PackageVersion Include="Expecto.Diff" Version="$(ExpectoPackagesVersion)" />
+    <PackageVersion Include="Expecto.FsCheck" Version="$(ExpectoPackagesVersion)" />
+    <PackageVersion Include="YoloDev.Expecto.TestSdk" Version="0.15.3" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.0-preview-25107-01" />
     <PackageVersion Include="BenchmarkDotNet" Version="0.14.0" />
   </ItemGroup>
 </Project>

@@ -38,7 +38,6 @@ module Array =
         if array.Length = 1 then
             array[0]
         else
-            // These are already vectorized
             Enumerable.Max array
 
     [<CompiledName("Min")>]
