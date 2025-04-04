@@ -13,7 +13,7 @@ This library tries to be a drop-in replacement for the `FSharp.Core` with functi
 - `Option<'T>` is aliasing `ValueOption<'T>`, all `Option` module functions shadowing the ones from `FSharp.Core`, several helper functions/methods provided to convert back and from the `FSharp.Core.Option<'T>`.
 - `...`
 
-## Hot to use:
+## How to use:
 This library being a `drop-in` replacement doesn't mean that just referencing its NuGet package is enough. Shadowing is achieved by opening this library's namespace (works on any granularity), for example:
 
 ```fsharp
