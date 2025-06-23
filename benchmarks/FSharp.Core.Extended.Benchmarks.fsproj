@@ -9,13 +9,13 @@
   <ItemGroup>
     <Compile Include="Utils.fs" />
     <Compile Include="collections/Array/Utils.fs" />
-    <Compile Include="collections/Array/Average.fs" />
     <Compile Include="collections/Array/Create.fs" />
     <Compile Include="collections/Array/Max.fs" />
     <Compile Include="collections/Array/MaxBy.fs" />
     <Compile Include="collections/Array/Min.fs" />
     <Compile Include="collections/Array/MinBy.fs" />
     <Compile Include="collections/Array/Sum.fs" />
+    <Compile Include="collections\Set\Create.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

@@ -1,8 +1,9 @@
 namespace FSharp.Core.Extended.Tests.Core.Lock
 
-module Min =
+#if NET9_OR_GREATER
+module Lock =
     open Expecto
-    open FSharp.Core.Extended.Locks
+    open FSharp.Core.Extended.Lock
     open System
 
 
@@ -52,3 +53,4 @@ module Min =
 
                 Expect.equal expected actual $"Expected the array to be {expected} but was {actual}"
         ]
+#endif

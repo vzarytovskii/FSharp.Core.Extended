@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <PackageId>FSharp.Core.Extended</PackageId>
-    <Version>1.0.6</Version>
+    <Version>1.0.7</Version>
     <Authors>Vlad Zarytovskii</Authors>
     <Company></Company>
     <PackageReadmeFile>./README.md</PackageReadmeFile>
@@ -21,7 +21,7 @@
     <BaseOutputPath>$(MSBuildThisFileDirectory)artifacts/bin</BaseOutputPath>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DefaultTargetFrameworks>net9.0</DefaultTargetFrameworks>
+    <DefaultTargetFrameworks>net8.0;net9.0;net10.0</DefaultTargetFrameworks>
     <LangVersion>preview</LangVersion>
     <Deterministic>True</Deterministic>
  </PropertyGroup>

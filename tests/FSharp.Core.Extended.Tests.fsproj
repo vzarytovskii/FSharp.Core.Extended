@@ -7,6 +7,7 @@
     <IsPackable>false</IsPackable>
     <PackageId>FSharp.Core.Extended.Tests</PackageId>
     <VSTestUseMSBuildOutput>false</VSTestUseMSBuildOutput>
+    <NoWarn>NU1510</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +19,7 @@
     <Compile Include="Collections/Array/MinBy.fs" />
     <Compile Include="Collections/Array/Min.fs" />
     <Compile Include="Collections/Array/Sum.fs" />
+    <Compile Include="Collections\Set\Create.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

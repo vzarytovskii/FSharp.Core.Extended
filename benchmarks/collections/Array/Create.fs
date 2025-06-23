@@ -3,8 +3,6 @@ namespace FSharp.Extended.Benchmarks.Collections.Array.Create
 open BenchmarkDotNet.Attributes
 open FSharp.Core.Extended.Benchmarks.Utils
 
-open System
-
 [<GenericTypeArguments(typeof<int>)>]
 [<GenericTypeArguments(typeof<int64>)>]
 [<GenericTypeArguments(typeof<double>)>]

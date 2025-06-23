@@ -1,7 +1,7 @@
-namespace FSharp.Core.Extended
+namespace FSharp.Core.Extended.Lock
 
 [<AutoOpen>]
-module Locks =
+module Lock =
 
     [<AutoOpen; AbstractClass; Sealed; NoComparison; NoEquality>]
     type Lock() =
@@ -51,6 +51,7 @@ module Locks =
         /// </code>
         /// </example>
         ///
+#if NET_9_OR_GREATER
         [<CompiledName("Lock")>]
         static member inline lock (lockObject: System.Threading.Lock) =
             fun ([<InlineIfLambda>] action: unit -> 'R) ->
@@ -63,7 +64,7 @@ module Locks =
                     action ()
                 finally
                     scope.Dispose()
-
+#endif
         /// <summary>Execute the function as a mutual-exclusion region using the input value as a lock. </summary>
         ///
         /// <param name="lockObject">The object to be locked.</param>
@@ -113,7 +114,7 @@ module Locks =
         [<CompiledName("Lock")>]
         static member inline lock (lockObject: 'T when 'T : not struct) =
             fun ([<InlineIfLambda>] action: unit -> 'R) ->
-#if DEBUG
+#if DEBUG && NET_9_OR_GREATER
                 if (lockObject.GetType() = typeof<System.Threading.Lock>) then
                     raise (new System.ArgumentException("System.Threading.Lock should not be passed to this function", nameof(lockObject)))
 #endif
